@@ -11,16 +11,17 @@ class Scoreboard(Turtle):
         self.penup()
         self.goto(-230, 250)
         self.color('black')
-        self.write(f"Level:{self.level}", False, font=FONT, align='center')
         self.hideturtle()
+        self.update_scoreboard()
+
+    def update_scoreboard(self):
+        self.clear()
+        self.write(f"Level:{self.level}", False, font=FONT, align='center')
 
     def update_level(self):
         self.level += 1
-        self.clear()
-        self.write(f"Level:{self.level}", False, font=FONT, align='center')
+        self.update_scoreboard()
 
     def game_over(self):
-        self.clear()
         self.goto(0, 0)
-
         self.write(f"GAME OVER", False, font=FONT_GAME_OVER, align='center')

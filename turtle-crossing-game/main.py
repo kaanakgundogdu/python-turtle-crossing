@@ -24,9 +24,11 @@ while game_is_on:
     for i in car_man.CREATED_CARS:
         if player.distance(i.xcor(), i.ycor()) < 20:
             scoreboard.game_over()
-            time.sleep(10)
-
+            game_is_on = False
 
     if player.ycor() > player.finish_line_y:
         player.complete_level()
+        car_man.car_speed += .2
         scoreboard.update_level()
+
+screen.exitonclick()
